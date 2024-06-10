@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const JobSchema = new mongoose.Schema({
   customerName: { type: String, required: true },
   jobType: { type: String, required: true },
-  status: { type: String, required: true },
+  status: { type: String, required: true, enum: ['Scheduled', 'Completed'] },
   appointmentDate: { type: Date, required: true },
   technician: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Job", JobSchema);
+module.exports = mongoose.model('Job', JobSchema);
